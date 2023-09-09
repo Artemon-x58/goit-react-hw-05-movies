@@ -4,6 +4,7 @@ import { TopToday } from './TopToday/TopToday';
 import { SearchMovies } from './SearchMovies/SearchMovies';
 import { SearchResultsList } from './SearchResultsList/SearchResultsList';
 import { MovieDetails } from './MovieDetails/MovieDetails';
+import { Cast } from './Cast/Cast';
 
 export const App = () => {
   return (
@@ -12,12 +13,10 @@ export const App = () => {
         <Route index element={<TopToday />} />
         <Route path="movies" element={<SearchMovies />} />
         <Route path="movies/:movieId" element={<MovieDetails />}>
-          <Route path="cast " />
-          <Route path="reviews " />
+          <Route path="cast" element={<Cast />} />
+          <Route path="reviews" />
         </Route>
         <Route path="movies/results" element={<SearchResultsList />} />
-        <Route path="cast" />
-        <Route path="reviews" />
       </Route>
     </Routes>
   );
