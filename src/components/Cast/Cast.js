@@ -10,7 +10,7 @@ import {
 import { apiResults } from '../../API/api';
 import { Loader } from 'components/Loader/Loader';
 
-export const Cast = () => {
+const Cast = () => {
   const [cast, setCast] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -52,3 +52,4 @@ export const Cast = () => {
     </>
   );
 };
+export default Cast;

@@ -1,9 +1,10 @@
 import { SearchMovies } from 'components/SearchMovies/SearchMovies';
 
-export const MoviesPage = () => {
+const MoviesPage = () => {
   return (
     <>
       <SearchMovies />
     </>
   );
 };
+export default MoviesPage;

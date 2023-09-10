@@ -1,5 +1,6 @@
 import { TopToday } from 'components/TopToday/TopToday';
 
-export const HomePage = () => {
+const HomePage = () => {
   return <TopToday />;
 };
+export default HomePage;

@@ -1,5 +1,7 @@
 import { SearchResultsList } from 'components/SearchResultsList/SearchResultsList';
 
-export const MoviesResultsPage = () => {
+const MoviesResultsPage = () => {
   return <SearchResultsList />;
 };
+
+export default MoviesResultsPage;

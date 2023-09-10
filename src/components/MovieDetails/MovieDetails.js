@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import {
   AdditionalInfo,
   BackBtn,
@@ -111,7 +111,9 @@ export const MovieDetails = () => {
                   <ReviewsLink to="reviews">Reviews</ReviewsLink>
                 </ReviewsItem>
               </ListLinks>
-              <Outlet />
+              <Suspense fallback={<div>Loading...</div>}>
+                <Outlet />
+              </Suspense>
             </>
           )}
         </>
