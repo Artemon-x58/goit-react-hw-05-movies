@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
+import { TopToday } from 'components/TopToday/TopToday';
 
 export const HomePage = () => {
-  return <Link to="/" />;
+  return <TopToday />;
 };

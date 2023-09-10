@@ -1,16 +1,25 @@
-import { ItemNav, ListNav, NavStyled, NavLinkStyled } from './Nav.styled';
+import React from 'react';
+import {
+  Header,
+  NavStyled,
+  ListNav,
+  ItemNav,
+  NavLinkStyled,
+} from './Nav.styled';
 
 export const Nav = () => {
   return (
-    <NavStyled>
-      <ListNav>
-        <ItemNav>
-          <NavLinkStyled to="/">Home</NavLinkStyled>
-        </ItemNav>
-        <ItemNav>
-          <NavLinkStyled to="/movies">Movies</NavLinkStyled>
-        </ItemNav>
-      </ListNav>
-    </NavStyled>
+    <Header>
+      <NavStyled>
+        <ListNav>
+          <ItemNav>
+            <NavLinkStyled to="/">Home</NavLinkStyled>
+          </ItemNav>
+          <ItemNav>
+            <NavLinkStyled to="/movies">Movies</NavLinkStyled>
+          </ItemNav>
+        </ListNav>
+      </NavStyled>
+    </Header>
   );
 };

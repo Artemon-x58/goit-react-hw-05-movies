@@ -1,5 +1,9 @@
-import { Link } from 'react-router-dom';
+import { SearchMovies } from 'components/SearchMovies/SearchMovies';
 
 export const MoviesPage = () => {
-  return <Link to="/movies" />;
+  return (
+    <>
+      <SearchMovies />
+    </>
+  );
 };
