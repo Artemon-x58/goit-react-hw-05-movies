@@ -1,14 +1,9 @@
 import { Loader } from 'components/Loader/Loader';
 import { apiResults } from '../../API/api';
-import {
-  SearchItem,
-  SearchItemLink,
-  SearchList,
-} from './SearchResultsList.styled';
+
 import { useEffect, useState } from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
-
-const urlSerchMovies = 'search/movie';
+import { MoviesList } from 'components/MoviesList/MoviesList';
 
 export const SearchResultsList = () => {
   const [resultsSearch, setResultsSearch] = useState([]);
@@ -20,7 +15,7 @@ export const SearchResultsList = () => {
   useEffect(() => {
     setIsLoading(true);
 
-    apiResults(query, urlSerchMovies)
+    apiResults('search/movie', query)
       .then(res => {
         setResultsSearch(res.results);
       })
@@ -33,18 +28,7 @@ export const SearchResultsList = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <SearchList>
-          {resultsSearch.map(({ id, title, name }) => (
-            <SearchItem key={id}>
-              <SearchItemLink
-                to={`/movies/${id}`}
-                state={{ from: location.pathname }}
-              >
-                {name ?? title}
-              </SearchItemLink>
-            </SearchItem>
-          ))}
-        </SearchList>
+        <MoviesList location={location} list={resultsSearch} />
       )}
     </>
   );

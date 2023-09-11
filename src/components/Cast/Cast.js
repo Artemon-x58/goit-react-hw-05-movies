@@ -15,14 +15,14 @@ const Cast = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const { movieId } = useParams();
-  const urlCast = `movie/${movieId}/credits`;
+
   useEffect(() => {
     setIsLoading(true);
-    apiResults(undefined, urlCast)
+    apiResults(`movie/${movieId}/credits`)
       .then(data => setCast(data.cast))
       .catch(err => console.log(err))
       .finally(() => setIsLoading(false));
-  }, [urlCast]);
+  }, [movieId]);
 
   return (
     <>

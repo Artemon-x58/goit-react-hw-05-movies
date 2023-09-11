@@ -1,4 +1,4 @@
-import { SearchBtn, SearchContainer, SearchInput } from './SearchMovies.styled';
+import { SearchBtn, SearchForm, SearchInput } from './SearchMovies.styled';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -11,7 +11,8 @@ export const SearchMovies = () => {
     setTitle(e.target.value);
   };
 
-  const onSearchMovies = () => {
+  const onSearchMovies = e => {
+    e.preventDefault();
     if (title.trim() === '') {
       return;
     }
@@ -19,13 +20,13 @@ export const SearchMovies = () => {
   };
 
   return (
-    <SearchContainer>
+    <SearchForm onSubmit={onSearchMovies}>
       <SearchInput
         type="text"
         placeholder="Search for movies..."
         onChange={addTitleState}
       />
-      <SearchBtn onClick={onSearchMovies}>Search</SearchBtn>
-    </SearchContainer>
+      <SearchBtn>Search</SearchBtn>
+    </SearchForm>
   );
 };

@@ -21,7 +21,7 @@ export const SearchBtn = styled.button`
   margin-left: 10px;
 `;
 
-export const SearchContainer = styled.div`
+export const SearchForm = styled.form`
   display: flex;
   align-items: center;
   justify-content: center;

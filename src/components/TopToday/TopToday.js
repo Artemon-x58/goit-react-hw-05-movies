@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
-import { Title, TopList, TopListItem, TopListItemLink } from './TopTodayStyled';
+import { Title } from './TopTodayStyled';
 import { apiResults } from '../../API/api';
 import { Loader } from 'components/Loader/Loader';
 import { useLocation } from 'react-router-dom';
-
-const urlTopList = 'trending/all/day';
+import { MoviesList } from 'components/MoviesList/MoviesList';
 
 export const TopToday = () => {
   const [topList, setTopList] = useState([]);
@@ -13,7 +12,7 @@ export const TopToday = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    apiResults(null, urlTopList)
+    apiResults('trending/movie/day')
       .then(res => {
         setTopList(res.results);
       })
@@ -29,18 +28,19 @@ export const TopToday = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <TopList>
-          {topList.map(({ id, title, name }) => (
-            <TopListItem key={id}>
-              <TopListItemLink
-                to={`movies/${id}`}
-                state={{ from: location.pathname }}
-              >
-                {name ?? title}
-              </TopListItemLink>
-            </TopListItem>
-          ))}
-        </TopList>
+        <MoviesList location={location} list={topList} />
+        // <TopList>
+        //   {topList.map(({ id, title, name }) => (
+        //     <TopListItem key={id}>
+        //       <TopListItemLink
+        //         to={`movies/${id}`}
+        //         state={{ from: location.pathname }}
+        //       >
+        //         {name ?? title}
+        //       </TopListItemLink>
+        //     </TopListItem>
+        //   ))}
+        // </TopList>
       )}
     </>
   );

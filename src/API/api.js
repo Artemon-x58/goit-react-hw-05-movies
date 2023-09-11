@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const apiResults = (title, url) => {
+export const apiResults = (url, title) => {
   return axios
     .get(`https://api.themoviedb.org/3/${url}`, {
       params: { language: 'en-US', query: title },
