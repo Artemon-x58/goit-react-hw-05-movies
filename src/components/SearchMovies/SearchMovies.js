@@ -1,12 +1,8 @@
 import { SearchBtn, SearchForm, SearchInput } from './SearchMovies.styled';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
-export const SearchMovies = () => {
+export const SearchMovies = ({ searchMovie }) => {
   const [title, setTitle] = useState('');
-
-  const navigate = useNavigate();
-
   const addTitleState = e => {
     setTitle(e.target.value);
   };
@@ -16,7 +12,7 @@ export const SearchMovies = () => {
     if (title.trim() === '') {
       return;
     }
-    navigate(`/movies/results?query=${title}`);
+    searchMovie(title);
   };
 
   return (
